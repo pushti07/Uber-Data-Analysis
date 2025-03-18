@@ -1,0 +1,6 @@
+Q1. In which category do people book the most Uber rides?
+Q2. For which purpose do people book Uber rides the most?
+Q3. At what time do people book Uber rides the most?
+Q4. In which month do people book Uber rides less frequently?
+Q5. On which days of the week do people book Uber rides the most?
+Q6. How many miles do people usually book a cab for through Uber?
