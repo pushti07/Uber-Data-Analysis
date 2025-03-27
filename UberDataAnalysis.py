@@ -24,3 +24,11 @@ df['date'] = pd.DatetimeIndex(df['START_DATE']).date
 df['time'] = pd.DatetimeIndex(df['START_DATE']).hour
 
 df.head()
+
+df['day'] = pd.cut(x = df['time'], bins = [0, 10, 15, 19, 24], labels = ['Morning', 'Afternoon', 'Evening', 'Night'])
+df
+
+df.dropna(inplace = True)
+df.shape
+
+# Data Visualization
