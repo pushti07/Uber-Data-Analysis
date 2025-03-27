@@ -32,3 +32,12 @@ df.dropna(inplace = True)
 df.shape
 
 # Data Visualization
+plt.figure(figsize = (20, 5))
+plt.subplot(1, 2, 1)
+
+sns.countplot(x = 'CATEGORY', data = df)
+plt.xticks()
+
+plt.subplot(1, 2, 2)
+sns.countplot(x = 'PURPOSE', data = df)
+plt.show()
