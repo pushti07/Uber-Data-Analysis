@@ -63,3 +63,22 @@ df = pd.DataFrame({
 
 p = sns.lineplot(data = df)
 p.set(xlabel = 'MONTHS', ylabel = 'VALUE COUNT')
+
+df['DAY'] = df.START_DATE.dt.weekday
+
+day_label = {
+    0 : 'Mon', 1 : 'Tues', 2 : 'Wed', 3 : 'Thurs' , 4 : 'Fri', 5 : 'Sat', 6 : 'Sun'
+}
+
+df['DAY'] = df['DAY'].map(day_label)
+
+day_label = df.DAY.value_counts()
+sns.barplot(x = day_label.index, y = day_label)
+plt.xlabel('Day')
+plt.ylabel('Count')
+
+sns.boxplot(df['MILES'])
+sns.boxplot(df[df['MILES'] < 100]['MILES'])
+
+sns.boxplot(df[df['MILES'] < 40]['MILES'])
+sns.distplot(df[df['MILES'] < 40]['MILES'])
