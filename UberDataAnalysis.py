@@ -41,3 +41,25 @@ plt.xticks()
 plt.subplot(1, 2, 2)
 sns.countplot(x = 'PURPOSE', data = df)
 plt.show()
+
+sns.countplot(df['day'])
+
+df.head()
+
+df['Month'] = pd.DatetimeIndex(df['START_DATE']).month
+
+month_label = {1.0 : 'Jan', 2.0 : 'Feb', 3.0 : 'Mar', 4.0 : 'Apr', 5.0 : 'May', 6.0 : 'June', 7.0 : 'July', 8.0 : 'Aug', 9.0 : 'Sept', 10.0 : 'Oct', 11.0 : 'Nov', 12.0 : 'Dec'}
+
+df['Month'] = df.Month.map(month_label)
+
+mon = df.Month.value_counts(sort = False)
+
+df.head()
+
+df = pd.DataFrame({
+    'MONTHS' : mon.values,
+    'VALUE COUNT' : df.groupby('Month', sort = False)['MILES'].max()
+})
+
+p = sns.lineplot(data = df)
+p.set(xlabel = 'MONTHS', ylabel = 'VALUE COUNT')
